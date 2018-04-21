@@ -1,0 +1,35 @@
+﻿<Window x:Name="Main" x:Class="BEC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BEC"
+        mc:Ignorable="d"
+        Title="BEC v2" Height="350" Width="525" Icon="GEAR.png" WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom">
+            <TextBlock Name="StatusText" Text="Опять работать?" />
+            <StatusBarItem HorizontalAlignment="Right">
+                <ResizeGrip />
+            </StatusBarItem>
+        </StatusBar>
+        <DockPanel DockPanel.Dock="Top" Height="48">
+            <Button DockPanel.Dock="Right" VerticalAlignment="Center" Width="90" Content="Указать путь" Margin="0,0,7,0" Name="SetPathIP" Click="SetPathIP_Click" />
+            <TextBlock Name="PathToIPLabel" DockPanel.Dock="Top" Margin="5,5,0,0" Text="Путь к списку IP адресов:" />
+            <TextBlock Name="PathToIP" DockPanel.Dock="Top" Margin="10,5,0,0" />
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" Height="48">
+            <Button DockPanel.Dock="Right" VerticalAlignment="Center" Width="90" Content="Указать путь" Margin="0,0,7,0" Name="SetPathCMD" Click="SetPathCMD_Click" />
+            <TextBlock Name="PathToCMDLabel" DockPanel.Dock="Top" Margin="5,5,0,0" Text="Путь к списку команд:" />
+            <TextBlock Name="PathToCMD" DockPanel.Dock="Top" Margin="10,5,0,0" />
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Button DockPanel.Dock="Right" Width="150" Name="StartButton" Content="Заводи это дерьмо!" Margin="5,3,0,3" Click="StartButton_Click" />
+            <TextBlock DockPanel.Dock="Left" HorizontalAlignment="Stretch" Text="Дополнительные опции в списке команд:&#10;&lt;ipaddress&gt; - подставляет текущий IP адрес." Margin="5,5,0,5"/>
+        </DockPanel>
+        <DockPanel>
+            <DataGrid Name="GridOutput" ItemsSource="{Binding}" IsReadOnly="True">
+            </DataGrid>
+        </DockPanel>
+        </DockPanel>
+</Window>

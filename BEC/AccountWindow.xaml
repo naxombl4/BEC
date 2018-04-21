@@ -1,0 +1,22 @@
+﻿<Window x:Class="BEC.AccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BEC"
+        mc:Ignorable="d"
+        Title="Введите учетные данные" Height="150" Width="310" Icon="gear.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <TextBox Name="LoginTextBox" DockPanel.Dock="Right" Width="170" Margin="5,5,5,5" TabIndex="0"/>
+            <TextBlock Name="LoginLabel" DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Имя пользователя:" Margin="5,5,5,5"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <PasswordBox Name="PasswordTextBox" DockPanel.Dock="Right" Width="170" Margin="5,5,5,5" TabIndex="1" KeyDown="PasswordTextBox_KeyDown"/>
+            <TextBlock Name="PasswordLabel" DockPanel.Dock="Left" HorizontalAlignment="Right" Text="Пароль:" Margin="5,5,5,5" />
+        </DockPanel>
+        <DockPanel>
+            <Button Name="SendAccount" Content="OK" Margin="5,5,5,5" TabIndex="2" Click="SendAccount_Click" />
+        </DockPanel>
+        </DockPanel>
+</Window>
