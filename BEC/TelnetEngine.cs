@@ -231,7 +231,7 @@ namespace BEC
                 telnet.Connect(ip, 23);
                 telnet.ReceiveBufferSize = 65536;
                 temp = ReadStream();
-                while (temp.IndexOf("ame:") == -1 | temp.IndexOf("ogin:") == -1)
+                while (temp.IndexOf("ame:") == -1 && temp.IndexOf("ogin:") == -1)
                 {
                     Thread.Sleep(100);
                     temp = ReadStream();
@@ -245,20 +245,23 @@ namespace BEC
                 }
                 SendCMD(password);
                 temp = "";
+
+                //Читаем до получения приглашающего символа, либо повторного запроса на авторизацию
                 do
                 {
                     temp = ReadStream();
                     Thread.Sleep(100);
                 }
                 while (temp != "");
-                if (temp.IndexOf("ame:") == -1 | temp.IndexOf("ogin:") == -1)
+
+                if (temp.IndexOf("ame:") != -1 || temp.IndexOf("ogin:") != -1)
                 {
                     state = "Login incorrect";
                     CloseConnection();
                     return state;
                 }
 
-                if (temp.IndexOf('#') == -1 | temp.IndexOf('>') == -1)
+                if (temp.IndexOf('#') == -1 || temp.IndexOf('>') == -1)
                 {
                     state = "Success";
                     return state;

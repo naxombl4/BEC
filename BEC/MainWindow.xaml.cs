@@ -194,6 +194,7 @@ namespace BEC
                                 }
                                 TE.CloseConnection();
                                 OutputTable.Rows[index][2] = 100;
+                                OutputTable.Rows[index][1] = "Готов";
                                 //StatusText.Text = "Выполнение команд для " + ipaddress + " завершено";
                                 break;
                         }
